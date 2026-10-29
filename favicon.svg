@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <!-- Dark / Obsidian Base -->
+    <radialGradient id="fav-bg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#0a0502" />
+      <stop offset="100%" stop-color="#030712" />
+    </radialGradient>
+
+    <!-- Warm Orange-to-Red Emblem Gradients -->
+    <linearGradient id="pylon-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA028" />
+      <stop offset="50%" stop-color="#FF6A00" />
+      <stop offset="100%" stop-color="#E53200" />
+    </linearGradient>
+
+    <linearGradient id="pylon-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E53200" />
+      <stop offset="50%" stop-color="#B81400" />
+      <stop offset="100%" stop-color="#6E0500" />
+    </linearGradient>
+
+    <linearGradient id="orbital-ring" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF4500" />
+      <stop offset="40%" stop-color="#FFA21A" />
+      <stop offset="75%" stop-color="#FF5A00" />
+      <stop offset="100%" stop-color="#FFD080" />
+    </linearGradient>
+
+    <filter id="flare-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="ring-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#FF5500" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded canvas -->
+  <rect width="100" height="100" rx="22" fill="url(#fav-bg)" />
+  <rect width="100" height="100" rx="22" fill="none" stroke="#FF5500" stroke-opacity="0.3" stroke-width="1.5" />
+
+  <!-- Back Arc of the Orbital Torus Ribbon -->
+  <path
+    d="M 28 48 C 36 32, 64 26, 82 32"
+    stroke="url(#orbital-ring)"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    opacity="0.6"
+  />
+
+  <!-- Main Emblem "A" -->
+  <!-- Left Pylon (Bright Orange with Apex Cut) -->
+  <polygon
+    points="50,15 35,15 20,78 35,78 45,46 50,46"
+    fill="url(#pylon-left)"
+  />
+
+  <!-- Right Pylon (Deep Crimson/Red Facet) -->
+  <polygon
+    points="50,15 65,15 80,78 65,78 55,46 50,46"
+    fill="url(#pylon-right)"
+  />
+
+  <!-- Inner Apex Facet / Aperture -->
+  <polygon
+    points="50,22 43,44 57,44"
+    fill="#080200"
+  />
+
+  <!-- Front Arc of the 3D Sweeping Orbital Loop -->
+  <path
+    d="M 24 64 C 32 78, 62 80, 84 40"
+    stroke="url(#orbital-ring)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    filter="url(#ring-glow)"
+  />
+
+  <!-- Radiant 4-Point Star Lens Flare at Upper-Right of Orbit -->
+  <g transform="translate(84, 40)" filter="url(#flare-glow)">
+    <!-- Vertical Flare Spike -->
+    <path d="M 0 -7 L 0.8 -1.2 L 6 0 L 0.8 1.2 L 0 7 L -0.8 1.2 L -6 0 L -0.8 -1.2 Z" fill="#FFF5E6" />
+    <!-- Center Core Glow -->
+    <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+    <circle cx="0" cy="0" r="3" fill="#FFA500" opacity="0.5" />
+  </g>
+</svg>
